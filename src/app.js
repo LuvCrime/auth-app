@@ -6,6 +6,7 @@ const form = document.getElementById("form");
 const input = form.querySelector("#question-input");
 const submit = form.querySelector("#submit");
 
+window.addEventListener('load', Question.renderList)
 form.addEventListener('submit', submitFormHandler);
 input.addEventListener('input', () => {
     submit.disabled = !isValid(input.value)
