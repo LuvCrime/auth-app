@@ -5,7 +5,7 @@ export function isValid(value) {
 export function createModal(title, content) {
   const modal = document.createElement("div");
   modal.classList.add("modal");
-
+console.log(title, content, 'ccc')
   modal.innerHTML = `
     <h1>${title}</h1>
     <div class="modal-content">${content}</div>

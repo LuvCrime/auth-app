@@ -18,6 +18,37 @@ export class Question {
       .then(addToLocalStorage)
       .then(this.renderList);
   }
+
+  static getAllQuestions(token) {
+    if (!token) {
+      return Promise.resolve('<p class="error">Register to continue</p>');
+    }
+    return fetch(
+      `https://auth-app-cb4e7-default-rtdb.firebaseio.com/questions.json?auth=${token}`
+    )
+      .then((response) => response.json())
+      .then((response) => {
+        if (response && response.error) {
+          return `<p class="error">${response.error}</p>`;
+        }
+
+        return response
+          ? Object.keys(response).map((key) => ({
+              ...response[key],
+              id: key,
+            }))
+          : [];
+      });
+  }
+
+  static listToHTML(questions) {
+    if (questions.length) {
+      return `<ol>${questions.map((q) => `<li>${q.text}</li>`).join("")}</ol>`;
+    } else {
+      return `<p>No questions yet</p>`;
+    }
+  }
+
   static renderList() {
     const questions = getQuestionsFromLocalStorage();
 

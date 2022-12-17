@@ -1,7 +1,7 @@
 import "./style.css";
 import { isValid, createModal } from "./utils";
 import { Question } from "./question";
-import { getAuthForm } from "./auth";
+import { getAuthForm, authWithEmailAndPassword } from "./auth";
 
 const modalButton = document.getElementById("modal-button");
 const form = document.getElementById("form");
@@ -17,6 +17,27 @@ input.addEventListener("input", () => {
 
 function openModal() {
   createModal("Authorization", getAuthForm());
+  document
+    .getElementById("auth-form")
+    .addEventListener("submit", authFormHandler, { once: true });
+}
+
+function authFormHandler() {
+  event.preventDefault();
+
+  const email = event.target.querySelector("#email").value;
+  const password = event.target.querySelector("#password").value;
+  authWithEmailAndPassword(email, password)
+    .then(Question.getAllQuestions)
+    .then(renderModalAfterAuth);
+}
+
+function renderModalAfterAuth(content) {
+  if (typeof content === "string") {
+    createModal("Error", content);
+  } else {
+    createModal("Questions list", Question.listToHTML(content));
+  }
 }
 
 function submitFormHandler(event) {

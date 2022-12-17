@@ -68,6 +68,10 @@ button {
   padding: 0;
 }
 
+.error {
+  color: 'red'
+}
+
 /**
   * Content CSS
   */
