@@ -2,48 +2,77 @@
  * Body CSS
  */
 
- html,
- body {
-   height: 100%;
- }
- 
- html,
- body,
- input,
- textarea,
- button {
-   -webkit-font-smoothing: antialiased;
-   -moz-osx-font-smoothing: grayscale;
-   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
- }
- 
- 
- /**
+html,
+body {
+  height: 100%;
+}
+
+html,
+body,
+input,
+textarea,
+button {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+}
+
+/**
   * Sidebar CSS
   */
- 
- #sidebar {
-   background-color: #2196F3;
-   padding: 15px;
- }
- 
- @media (min-width: 768px) {
-   #sidebar {
-     position: fixed;
-     top: 0;
-     bottom: 0;
-     width: 180px;
-     height: 100%;
-     padding-top: 30px;
-   }
- }
- 
- 
- /**
+
+#sidebar {
+  background-color: #2196f3;
+  padding: 15px;
+}
+
+@media (min-width: 768px) {
+  #sidebar {
+    top: 0;
+    bottom: 0;
+    width: 180px;
+    height: 100%;
+    position: fixed;
+    padding-top: 30px;
+  }
+}
+
+.mui-btn--fab {
+  position: fixed;
+  bottom: 100px;
+  right: 100px;
+}
+
+#list-item {
+  margin-bottom: 10px;
+}
+
+.modal {
+  padding: 30px;
+  max-width: 500px;
+  max-height: 300px;
+  overflow-y: none;
+  margin: 100px auto;
+  background-color: #fff;
+}
+
+.modal h1 {
+  text-align: center;
+}
+
+.modal .modal-content {
+  box-sizing: border-box;
+}
+
+.mui-btn--large {
+  padding: 0;
+}
+
+/**
   * Content CSS
   */
- @media (min-width: 768px) {
-   #content {
-     margin-left: 180px;
-   }
- }
+@media (min-width: 768px) {
+  #content {
+    margin-left: 180px;
+  }
+}
